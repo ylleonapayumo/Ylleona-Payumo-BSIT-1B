@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>El's Bag Boutique</title>
+    
+<!-- Bootstrap link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+<!-- CSS link -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!--JS LINK-->
+    <script src="script.js"></script>
+   
+
+ <!--NAVBAR-->
+ <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#top-section"><span class="text-warning">EL's BAG BOUTIQUE</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+         <!--Search-->
+         <div class="search">
+            <i class="ri-search-line"></i> <!--From remix icon link-->
+            <input type="text" placeholder="Search for Product">
+        </div>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="#top-section">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="#shop">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="#contact">Contacts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-danger" onclick="location.href='#login'">Log In</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" onclick="location.href='#myprofile'">My Profile</button>
+                </li>
+                <li class="nav-item">
+                    <button class="bi bi-bag-fill bag-icon" onclick="location.href='#cart'"></button>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+<!-- LOG IN PAGE -->
+<section id="login" class="login py-5 bg-light">
+    <div class="container">
+        <div class="row g-0">
+            <div class="col-lg-5">
+                <img src="assets/login-photo.png" class="img-fluid" alt="Login Photo">
+            </div>
+            <div class="col-lg-7 text-center py-5">
+                <h1>Shop Now</h1>
+                <form onsubmit="login(event)">
+                    <div class="form-row py-3 pt-5">
+                        <div class="offset-1 col-lg-10">
+                            <input type="text" class="inp px-3" placeholder="Username" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="offset-1 col-lg-10">
+                            <input type="password" class="inp px-3" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="form-row py-3">
+                        <div class="offset-1 col-lg-10">
+                            <button type="submit" class="btn1">Sign Up</button>
+                        </div>
+                    </div>
+                </form>
+                <!--icons using bootstrap-->
+                <p>Or Login With</p>
+                <i class="bi bi-facebook" style="font-size: 2.5rem; color: darkblue;"></i>
+                <i class="bi bi-google" style="font-size: 2.5rem; color: red;"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- main-home section -->
+<section id="top-section" class="main-home">
+    <div class="sidebar">
+        <a href="#top-section" class="logo">
+            <img src="assets/logo1.png" alt="Logo">
+        </a>
+    </div>
+    <!-- Main text -->
+    <div class="content">
+        <h1>Mabuhay Pilipinas!</h1>
+        <p>Filipino made bags</p>
+        <div class="button-container">
+            <a href="#shop">
+                <button type="button"><span></span>Shop Now</button>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<!--Products-->
+<section class="shop" id="shop">
+    <div class="container">
+        <div class="box">
+            <img src="assets/bag1.png" alt="Bag">
+            <h4>Straw Purse</h4>
+            <h5>PHP 1,056.29</h5>
+            <div class="cart">
+                <input type="number" id="quantity1" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(1)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(1)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(1)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer1" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod1" onchange="showAccountInput(1)">
+                    <option value="" disabled selected>Choose Mode of Payment</option>
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput1" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(1)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag2.png" alt="Bag">
+                <h4>Bayong Pandan Bag</h4>
+                <h5>PHP 4,464.29</h5>
+                <div class="cart">
+                    <input type="number" id="quantity2" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(2)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(2)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(2)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer2" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod2" onchange="showAccountInput(2)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput2" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(2)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag3.png" alt="Bag">
+                <h4>Large Premium Banig Bag</h4>
+                <h5>PHP 7,569.72</h5>
+                <div class="cart">
+                    <input type="number" id="quantity3" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(3)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(3)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(3)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer3" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod3" onchange="showAccountInput(3)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput3" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(3)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag4.png" alt="Bag">
+                <h4>2 in 1 Woven Bag</h4>
+                <h5>PHP 4,464.29</h5>
+                <div class="cart">
+                    <input type="number" id="quantity4" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(4)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(4)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(4)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer4" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod4" onchange="showAccountInput(4)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput4" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(4)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag5.png" alt="Bag">
+                <h4>Woven Beach Bag</h4>
+                <h5>PHP 4,431.82</h5>
+                <div class="cart">
+                    <input type="number" id="quantity5" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(5)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(5)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(5)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer5" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod5" onchange="showAccountInput(5)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput5" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(5)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag6.png" alt="Bag">
+                <h4>Pandan Clutch</h4>
+                <h5>PHP 1,913.33</h5>
+                <div class="cart">
+                    <input type="number" id="quantity6" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(6)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(6)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(6)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer6" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod6" onchange="showAccountInput(6)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput6" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(6)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag7.png" alt="Bag">
+                <h4>Rattan Straw Bag</h4>
+                <h5>PHP 5,389.22</h5>
+                <div class="cart">
+                    <input type="number" id="quantity7" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(7)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(7)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(7)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer7" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod7" onchange="showAccountInput(7)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput7" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(7)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag8.png" alt="Bag">
+                <h4>Rattan Balinese Bag</h4>
+                <h5>PHP 5,389.22</h5>
+                <div class="cart">
+                    <input type="number" id="quantity8" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(8)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(8)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(8)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer8" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod8" onchange="showAccountInput(8)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput8" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(8)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag9.png" alt="Bag">
+                <h4>Handwoven Straw Bag</h4>
+                <h5>PHP 2,849.10</h5>
+                <div class="cart">
+                    <input type="number" id="quantity9" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(9)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(9)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(9)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer9" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod9" onchange="showAccountInput(9)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput9" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(9)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag10.png" alt="Bag">
+                <h4>Vintage Philippine Kupit Bag</h4>
+                <h5>PHP 16,558,44</h5>
+                <div class="cart">
+                    <input type="number" id="quantity10" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(10)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(10)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(10)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer10" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod10" onchange="showAccountInput(10)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput10" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(10)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag11.png" alt="Bag">
+                <h4>Cyclin Rattan Bag</h4>
+                <h5>PHP 2,640.12</h5>
+                <div class="cart">
+                    <input type="number" id="quantity11" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(11)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(11)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(11)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer11" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod11" onchange="showAccountInput(11)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput11" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(11)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+
+        <div class="container">
+            <div class="box">
+                <img src="assets/bag12.png" alt="Bag">
+                <h4>Hand Crafted Lauhala</h4>
+                <h5>PHP 897.60</h5>
+                <div class="cart">
+                    <input type="number" id="quantity12" placeholder="Enter Quantity" min="1">
+                <button type="button" onclick="addToCart(12)">Add to Cart</button>
+            </div>
+            <div class="order-container">
+                <button type="button" onclick="toggleBuyNow(12)"><span></span>Buy Now</button>
+                <button type="button" onclick="showCategory(12)"><span></span>Category</button>
+            </div>
+            <div id="buyNowContainer12" class="buy-now-container" style="display:none;">
+                <select id="paymentMethod12" onchange="showAccountInput(12)">
+                    <option value="" disabled selected>Choose Mode of Payment</option> 
+                    <option value="GCASH">GCASH</option>
+                    <option value="BANK">BANK</option>
+                    <option value="COD">Cash on Delivery</option>
+                </select>
+                <input type="text" id="accountInput12" placeholder="Enter Your Account Number" style="display:none;">
+                <button type="button" onclick="submitOrder(12)">Submit Order</button>
+            </div>
+        </div>
+    </div>
+    </section>
+
+
+
+  <!--contact section-->
+  <section id="contact" class="contact section-padding">
+    <div class="container">
+      <div class="row"></div>
+      <div class="col-md-12">
+        <div class="section-header text-center pb-5">
+          <h2>Contact Us</h2>
+          <p>"Have a question or feedback? Get in touch with us! Our friendly team is here to assist you. Whether you want to place an order, inquire about our products, or share your experience, we're just a message away. Reach out via phone, email, or address, and we'll be delighted to connect with you."</p>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="mb-3">
+          <input type="name" class="form-control" required placeholder="Your Name Here">
+        </div>
+      </div>
+
+    <div class="col-md-12">
+        <div class="mb-3">
+          <input type="email" class="form-control" required placeholder="Your Email Here">
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <div class="mb-3">
+          <textarea rows="3" required class="form-control" placeholder="Your Query Here"></textarea>
+        </div>
+      </div>
+
+     <button class="btn btn-warning btn-lg btn-block mt-3">Send Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="address-details">
+        <div class="centered">
+            <i class="bi bi-geo-alt-fill"></i> <!--map logo using bootstrap-->
+            <div class="text-one">Address</div>
+        </div>
+        <div class="text-two">Samar, Calbiga City</div>
+    </div>
+    <div class="phone-details">
+        <div class="centered">
+            <i class="bi bi-telephone-fill"></i> <!--phone logo-->
+            <div class="text-one">Phone</div>
+        </div>
+        <div class="text-two">091-1234-5671</div>
+    </div>
+    <div class="email-details">
+        <div class="centered">
+            <i class="bi bi-envelope-open-fill"></i> <!--email logo-->
+            <div class="text-one">Email</div>
+        </div>
+        <div class="text-two">elsbagboutique@gmail.com</div>
+    </div>
+</section>
+
+<!-- about section -->
+<section id="about" class="about-section-padding">
+    <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+        <div class="about-text">
+            <h1 class="about-heading">Quality Over Quantity</h1>
+            <p>Welcome to El's Bag Boutique! <br>Your premier destination for exquisite Filipino-made bags that celebrate <br>the rich cultural heritage and craftsmanship of the Philippines.</br>
+            <br>
+            Discover the essence of Filipino craftsmanship at El's Bag Boutique. When you choose us, you're not just buying a beautiful accessory – you're preserving traditional craftsmanship and empowering Filipino artisans. Explore our collection today to experience the beauty and elegance of Filipino-made bags. Dive into the artistry, culture, and heritage woven into every stitch.
+            <a href="#top-section" class="btn btn-back-homepage">Back to Homepage</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- My Profile Section -->
+<section id="myprofile" class="myprofile-container">
+    <header>My Profile</header>
+    <form action="#" class="form">
+        <div class="input-box">
+            <label>Full Name</label>
+            <input type="text" placeholder="Enter Full Name" required/>
+        </div>
+        <div class="input-box">
+            <label>Email</label>
+            <input type="text" placeholder="Enter Email Address" required/>
+        </div>
+
+        <div class="column">
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="text" placeholder="Enter Phone Number" required/>
+            </div>
+
+            <div class="input-box">
+                <label>Birth Date</label>
+                <input type="date" placeholder="Enter Birth Date" required/>
+            </div>
+        </div>
+
+        <div class="gender-box">
+            <h3>Gender</h3>
+            <div class="gender-option">
+                <div class="gender">
+                    <input type="radio" id="check-male" name="gender"> <!--pseudo element for radio button-->
+                    <label for="check">Male</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" id="check-female" name="gender"> <!--pseudo element for radio button-->
+                    <label for="check">Female</label>
+                </div>
+                <div class="gender">
+                    <input type="radio" id="check-other" name="gender"> <!--pseudo element for radio button-->
+                    <label for="check">Prefer not to say</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-box address">
+            <label>Address</label>
+            <input type="text" placeholder="Enter Home Address" required/>
+            <div class="column">
+                <div class="select-box"> <!--allowing user to choose-->
+                    <select>
+                        <option hidden>Country</option>
+                        <option>Philippines</option>
+                        <option>China</option>
+                        <option>Japan</option>
+                        <option>South Korea</option>
+                    </select>
+                </div>
+            </div>
+            <input type="text" placeholder="Enter Your City" required/>
+
+         <div class="column">  
+            <input type="text" placeholder="Enter Your Region" required/>
+            <input type="text" placeholder="Enter Postal Code" required/>
+         </div>
+        </div>
+
+
+        <button>Submit</button>
+
+    </form>
+</section>
+</body>
+</html>
